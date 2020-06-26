@@ -18,6 +18,21 @@ jobs:
       with:
         submodules: true
 
+    - name: Cache submodules
+      uses: actions/cache@v2
+      env:
+        cache-name: cache-submodules
+      with:
+        path: |
+          libs/antlr4
+          libs/CLI11
+          libs/llvm
+          libs/whereami
+        key: ${{ runner.os }}-submodules-${{ hashFiles('**/*') }}
+        restore-keys: |
+          ${{ runner.os }}-submodules-${{ env.cache-name }}-
+          ${{ runner.os }}-submodules-
+
     - name: Install uuid package
       run: sudo apt-get install uuid-dev
 
@@ -34,19 +49,13 @@ jobs:
       shell: bash
       run: cmake --build . --config $BUILD_TYPE --parallel
 
-    - name: Cache libs and build files
+    - name: Cache build files
       uses: actions/cache@v2
       env:
-        cache-name: cache-libs-and-build
+        cache-name: cache-build
       with:
-        path: |
-          libs/antlr4
-          libs/CLI11
-          libs/llvm
-          libs/whereami
-          build
-        key: ${{ runner.os }}-cache-${{ hashFiles('**/*') }}
+        path: build
+        key: ${{ runner.os }}-build-${{ hashFiles('**/*') }}
         restore-keys: |
-          ${{ runner.os }}-cache-${{ env.cache-name }}-
-          ${{ runner.os }}-cache-
-          ${{ runner.os }}-
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
