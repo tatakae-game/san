@@ -46,9 +46,9 @@ include_directories(
   "${CMAKE_BINARY_DIR}/libs/lld"
 )
 
-add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/lld")
-
 add_definitions(${LLVM_DEFINITIONS})
+
+add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/lld")
 
 set(DEPENDENCIES_SOURCES
   "${CMAKE_CURRENT_SOURCE_DIR}/whereami/src/whereami.c"
