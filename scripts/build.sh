@@ -9,6 +9,6 @@ mkdir -p $build_directory
 cd $build_directory
 
 cmake ..
-cmake --build .
+cmake --build . --parallel 10
 
 cd $origin_directory
