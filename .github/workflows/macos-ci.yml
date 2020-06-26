@@ -44,7 +44,7 @@ jobs:
     - name: Build
       working-directory: ${{runner.workspace}}/build
       shell: bash
-      run: cmake --build . --config $BUILD_TYPE --parallel
+      run: cmake --build . --config $BUILD_TYPE
 
     - name: Cache build files
       uses: actions/cache@v2
