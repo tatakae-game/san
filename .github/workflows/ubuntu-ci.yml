@@ -28,7 +28,7 @@ jobs:
           libs/CLI11
           libs/llvm
           libs/whereami
-        key: ${{ runner.os }}-submodules-${{ hashFiles('**/*') }}
+        key: ${{ runner.os }}-submodules-${{ hashFiles('**/.gitmodules') }}
         restore-keys: |
           ${{ runner.os }}-submodules-${{ env.cache-name }}-
           ${{ runner.os }}-submodules-
@@ -47,7 +47,7 @@ jobs:
     - name: Build
       working-directory: ${{runner.workspace}}/build
       shell: bash
-      run: cmake --build . --config $BUILD_TYPE
+      run: cmake --build . --config $BUILD_TYPE --parallel 5
 
     - name: Cache build files
       uses: actions/cache@v2
@@ -55,7 +55,7 @@ jobs:
         cache-name: cache-build
       with:
         path: build
-        key: ${{ runner.os }}-build-${{ hashFiles('**/*') }}
+        key: ${{ runner.os }}-build
         restore-keys: |
-          ${{ runner.os }}-build-${{ env.cache-name }}-
-          ${{ runner.os }}-build-
+          ${{ runner.os }}-build-${{ env.cache-name }}
+          ${{ runner.os }}-build
