@@ -11,12 +11,15 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest, ubuntu-latest, macOS-latest]
+        os: [ubuntu-latest]
 
     steps:
     - uses: actions/checkout@v1
       with:
         submodules: true
+
+    - name: Install uuid package
+      run: sudo apt-get install uuid-dev
 
     - name: Create Build Environment
       run: cmake -E make_directory ${{runner.workspace}}/build
