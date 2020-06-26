@@ -18,6 +18,22 @@ jobs:
       with:
         submodules: true
 
+    - name: Install uuid package
+      run: sudo apt-get install uuid-dev
+
+    - name: Create Build Environment
+      run: cmake -E make_directory ${{runner.workspace}}/build
+
+    - name: Configure CMake
+      shell: bash
+      working-directory: ${{runner.workspace}}/build
+      run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE
+
+    - name: Build
+      working-directory: ${{runner.workspace}}/build
+      shell: bash
+      run: cmake --build . --config $BUILD_TYPE --parallel
+
     - name: Cache libs and build files
       uses: actions/cache@v2
       env:
@@ -34,19 +50,3 @@ jobs:
           ${{ runner.os }}-cache-${{ env.cache-name }}-
           ${{ runner.os }}-cache-
           ${{ runner.os }}-
-
-    - name: Install uuid package
-      run: sudo apt-get install uuid-dev
-
-    - name: Create Build Environment
-      run: cmake -E make_directory ${{runner.workspace}}/build
-
-    - name: Configure CMake
-      shell: bash
-      working-directory: ${{runner.workspace}}/build
-      run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE
-
-    - name: Build
-      working-directory: ${{runner.workspace}}/build
-      shell: bash
-      run: cmake --build . --config $BUILD_TYPE --parallel
