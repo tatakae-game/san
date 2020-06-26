@@ -14,35 +14,9 @@ jobs:
         os: [macOS-latest]
 
     steps:
-    - name: Cache submodules
-      uses: actions/cache@v2
-      env:
-        cache-name: cache-submodules
-      with:
-        path: |
-          libs/antlr4
-          libs/CLI11
-          libs/llvm
-          libs/whereami
-        key: ${{ runner.os }}-submodules-${{ hashFiles('**/.gitmodules') }}
-        restore-keys: |
-          ${{ runner.os }}-submodules-${{ env.cache-name }}-
-          ${{ runner.os }}-submodules-
-
     - uses: actions/checkout@v1
       with:
         submodules: true
-
-    - name: Cache build files
-      uses: actions/cache@v2
-      env:
-        cache-name: cache-build
-      with:
-        path: build
-        key: ${{ runner.os }}-build
-        restore-keys: |
-          ${{ runner.os }}-build-${{ env.cache-name }}
-          ${{ runner.os }}-build
 
     - name: Create Build Environment
       run: cmake -E make_directory ${{runner.workspace}}/build
@@ -55,4 +29,4 @@ jobs:
     - name: Build
       working-directory: ${{runner.workspace}}/build
       shell: bash
-      run: cmake --build . --config $BUILD_TYPE --parallel 5
+      run: cmake --build . --config $BUILD_TYPE --parallel 10
