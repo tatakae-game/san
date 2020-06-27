@@ -47,10 +47,9 @@
 #include <san/Exceptions/PropertyNotFoundException.hpp>
 #include <san/Exceptions/UnknownNameException.hpp>
 
-#include <filesystem>
-#include <regex>
+#include <san/filesystem.hpp>
 
-namespace fs = std::filesystem;
+#include <regex>
 
 namespace San
 {
