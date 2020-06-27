@@ -1,4 +1,4 @@
-name: Ubuntu C/C++ CI
+name: macOS build
 
 on: [push]
 
@@ -11,15 +11,12 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [macOS-latest]
 
     steps:
     - uses: actions/checkout@v2
       with:
         submodules: true
-
-    - name: Install uuid package
-      run: sudo apt-get install uuid-dev
 
     - name: Create Build Environment
       run: cmake -E make_directory ${{runner.workspace}}/build

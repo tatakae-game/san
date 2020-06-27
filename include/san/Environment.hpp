@@ -6,9 +6,7 @@
 
 #include <whereami.h>
 
-#include <filesystem>
-
-namespace fs = std::filesystem;
+#include <san/filesystem.hpp>
 
 #ifndef DIRECTORY_SEPARATOR
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
