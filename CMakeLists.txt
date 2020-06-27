@@ -41,7 +41,7 @@ set(TARGET_AMDGPU AMDGPUCodeGen AMDGPUAsmParser AMDGPUDesc AMDGPUUtils AMDGPUInf
 set(TARGET_X86 X86CodeGen X86AsmParser X86Desc X86Utils X86Info)
 set(TARGET_AArch64 AArch64CodeGen AArch64AsmParser AArch64Desc AArch64Utils AArch64Info)
 
-set(TARGETS_TO_BUILD "X86" "AArch64")
+set(TARGETS_TO_BUILD "WebAssembly" "XCore" "SystemZ" "Sparc" "RISCV" "PowerPC" "NVPTX" "MSP430" "Mips" "Lanai" "Hexagon" "BPF" "ARM" "AMDGPU" "X86" "AArch64")
 
 set(LLVM_TARGETS)
 foreach (target IN ITEMS ${TARGETS_TO_BUILD})
@@ -134,6 +134,8 @@ set(NATIVE_LIBRARIES)
 if(CMAKE_SYSTEM_NAME MATCHES "Linux")
     list(APPEND NATIVE_LIBRARIES "stdc++fs")
 endif()
+
+message("CMAKE_SYSTEM_NAME = ${CMAKE_SYSTEM_NAME}")
 
 target_link_libraries(${PROJECT_NAME} 
     ${NATIVE_LIBRARIES}
