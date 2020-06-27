@@ -30,7 +30,7 @@ jobs:
       working-directory: ${{runner.workspace}}/build
       env:
         CC: ${{ matrix.cc[0] }}
-        CXX: ${{ matrix.cc[1] }}++
+        CXX: ${{ matrix.cc[1] }}
       run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE
 
     - name: Build
