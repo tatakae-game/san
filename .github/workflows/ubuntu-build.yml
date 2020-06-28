@@ -19,6 +19,9 @@ jobs:
       with:
         submodules: true
 
+    - name: Install C++ packages
+      run: sudo apt-get install libc++-dev libc++abi-dev
+
     - name: Install uuid package
       run: sudo apt-get install uuid-dev
 
