@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        cc: [[gcc, g++]]
+        cc: [[gcc, g++], [clang, clang++]]
 
     steps:
     - uses: actions/checkout@v2
@@ -37,6 +37,6 @@ jobs:
       working-directory: ${{runner.workspace}}/build
       shell: bash
       env:
-        CC: ${{ matrix.cc }}
-        CXX: ${{ matrix.cxx }}
+        CC: ${{ matrix.cc[0] }}
+        CXX: ${{ matrix.cc[1] }}
       run: cmake --build . --config $BUILD_TYPE --parallel 10
