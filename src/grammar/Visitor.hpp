@@ -465,7 +465,7 @@ public:
             position = Position::save(this->scopes.top()->builder());
         }
 
-        auto scope = generic->scope;
+        auto scope = Scope::create(generic->scope);
         this->scopes.push(scope);
 
         for (size_t i = 0; i < generic->generics.size(); i++)
@@ -1103,7 +1103,7 @@ public:
             position = Position::save(this->scopes.top()->builder());
         }
 
-        auto scope = generic->scope;
+        auto scope = Scope::create(generic->scope);
         this->scopes.push(scope);
 
         auto type = Types::ClassType::create(scope, generic->name, generics);
@@ -2913,7 +2913,7 @@ public:
 
     Alias *generateGenericAlias(Types::GenericAlias *generic, const std::vector<Type *> &generics)
     {
-        auto scope = generic->scope;
+        auto scope = Scope::create(generic->scope);
         this->scopes.push(scope);
 
         for (size_t i = 0; i < generic->generics.size(); i++)

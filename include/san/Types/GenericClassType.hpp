@@ -15,7 +15,7 @@ public:
 
     std::vector<ClassType *> children;
 
-    GenericClassType(std::shared_ptr<Scope> scope_, const std::string &name, const std::vector<Generic *> &generics, SanParser::ClassStatementContext *context_) : GenericType(name, generics), context(context_), scope(scope_) {}
+    GenericClassType(const std::shared_ptr<Scope> &scope_, const std::string &name, const std::vector<Generic *> &generics, SanParser::ClassStatementContext *context_) : GenericType(name, generics), context(context_), scope(scope_) {}
 
     ClassType *get_child(const std::vector<Type *> generics)
     {

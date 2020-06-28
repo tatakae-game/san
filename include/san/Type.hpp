@@ -299,13 +299,12 @@ public:
             return Type::equals(left->base, right->base);
         }
 
-        if (left->is_integer())
+        if (left->is_integer() != right->is_integer())
         {
-            if (!right->is_integer())
-            {
-                return false;
-            }
-
+            return false;
+        }
+        else if (left->is_integer() && right->is_integer())
+        {
             if (left->is_signed != right->is_signed)
             {
                 return false;
