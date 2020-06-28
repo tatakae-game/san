@@ -126,7 +126,7 @@ llvm_map_components_to_libnames(llvm_libs
     BinaryFormat
     BitstreamReader
     Support
-    Demangle
+    # Demangle
 )
 
 set(NATIVE_LIBRARIES)
