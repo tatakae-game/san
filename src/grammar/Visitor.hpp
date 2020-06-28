@@ -104,7 +104,7 @@ public:
             }
         }
 
-        auto fullpath = fs::absolute(path).lexically_normal();
+        auto fullpath = fs::absolute(path);
 
         if (!fs::exists(fullpath) && !Helpers::ends_with(fullpath.u8string(), ".sn"))
         {
@@ -115,6 +115,8 @@ public:
         {
             throw FileNotFoundException();
         }
+
+        fullpath = fs::canonical(fullpath);
 
         if (std::find(imported.begin(), imported.end(), fullpath) != imported.end())
         {
