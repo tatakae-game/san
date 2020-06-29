@@ -66,3 +66,32 @@ jobs:
           CC: ${{ matrix.cc[0] }}
           CXX: ${{ matrix.cc[1] }}
         run: cmake --build . --config $BUILD_TYPE --parallel 10
+
+  build-windows:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Create Build Environment
+        run: cmake -E make_directory ${{runner.workspace}}/build
+
+      - name: Configure CMake
+        shell: bash
+        working-directory: ${{runner.workspace}}/build
+        run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE
+
+      - name: Build
+        working-directory: ${{runner.workspace}}/build
+        shell: bash
+        env:
+          CC: ${{ matrix.cc[0] }}
+          CXX: ${{ matrix.cc[1] }}
+        run: cmake --build . --config $BUILD_TYPE --parallel 10
