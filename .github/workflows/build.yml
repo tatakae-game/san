@@ -88,9 +88,9 @@ jobs:
         shell: powershell
         working-directory: ${{runner.workspace}}/build
         run: |
-          echo "Github workspace is ${{ github.workspace }}"
+          echo "Github workspace is $env:GITHUB_WORKSPACE"
           echo "Runner workspace is ${{runner.workspace}}"
-          cmake ${{ github.workspace }} -DCMAKE_BUILD_TYPE=$BUILD_TYPE
+          cmake $env:GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$env:BUILD_TYPE
 
       - name: Build
         working-directory: ${{runner.workspace}}/build
