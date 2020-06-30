@@ -3,6 +3,7 @@
 #include <san/Name.hpp>
 
 #include <llvm/IR/IRBuilder.h>
+#include <llvm/Support/raw_ostream.h>
 
 #include <cstdlib>
 #include <iostream>

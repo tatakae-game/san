@@ -10,10 +10,6 @@ macro(add_lld_library name)
   llvm_add_library(${name} ${ARG_ENABLE_SHARED} ${ARG_UNPARSED_ARGUMENTS})
   set_target_properties(${name} PROPERTIES FOLDER "lld libraries")
 
-  if (MSVC)
-    target_compile_options(${name} PRIVATE "/MT$<$<CONFIG:Debug>:d>")
-  endif()
-
   if (NOT LLVM_INSTALL_TOOLCHAIN_ONLY)
     if(${name} IN_LIST LLVM_DISTRIBUTION_COMPONENTS OR
         NOT LLVM_DISTRIBUTION_COMPONENTS)

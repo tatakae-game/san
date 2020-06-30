@@ -76,7 +76,7 @@ std::vector<std::string> San::Compiler::generate_objects(const std::string &os, 
     pass.add(llvm::createGVNPass());
     pass.add(llvm::createCFGSimplificationPass());
 
-    llvm::TargetMachine::CodeGenFileType file_type = llvm::TargetMachine::CGFT_ObjectFile;
+    llvm::CodeGenFileType file_type = llvm::CGFT_ObjectFile;
 
     if (target_machine->addPassesToEmitFile(pass, dest, nullptr, file_type))
     {

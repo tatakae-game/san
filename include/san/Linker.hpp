@@ -173,15 +173,15 @@ public:
 
         if (os == "windows")
         {
-            return lld::coff::link(raw_args, false);
+            return lld::coff::link(raw_args, false, llvm::outs(), llvm::errs());
         }
         else if (os == "darwin")
         {
-            return lld::mach_o::link(raw_args, false);
+            return lld::mach_o::link(raw_args, false, llvm::outs(), llvm::errs());
         }
         else if (os == "linux")
         {
-            return lld::elf::link(raw_args, false);
+            return lld::elf::link(raw_args, false, llvm::outs(), llvm::errs());
         }
     }
 };

@@ -20,7 +20,7 @@ public:
     {
         auto global = new llvm::GlobalVariable(*module, type->get_ref(), true, llvm::GlobalValue::PrivateLinkage, constant, ".str");
         global->setUnnamedAddr(llvm::GlobalValue::UnnamedAddr::Global);
-        global->setAlignment(1);
+        global->setAlignment(llvm::Align(1));
 
         return new GlobalConstant(name, type->reference(), global);
     }

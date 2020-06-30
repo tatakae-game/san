@@ -60,7 +60,7 @@ public:
 
             auto size = llvm::ConstantInt::get(llvm::Type::getInt64Ty(builder.getContext()), lvalue->type->size(module));
 
-            builder.CreateMemCpy(lvalue->get_ref(), 1, rvalue->get_ref(), 1, llvm::cast<llvm::Value>(size));
+            builder.CreateMemCpy(lvalue->get_ref(), llvm::Align(1), rvalue->get_ref(), llvm::Align(1), llvm::cast<llvm::Value>(size));
         }
         else if (this->type->is_array() && value->type->is_array())
         {
