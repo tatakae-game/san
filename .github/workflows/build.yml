@@ -87,8 +87,8 @@ jobs:
         shell: powershell
         working-directory: ${{runner.workspace}}/build
         run: |
-          echo $GITHUB_WORKSPACE
-          echo ${{runner.workspace}}
+          echo "Github workspace is $GITHUB_WORKSPACE"
+          echo "Runner workspace is ${{runner.workspace}}""
           cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE
 
       - name: Build
