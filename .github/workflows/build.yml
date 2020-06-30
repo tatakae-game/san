@@ -99,4 +99,4 @@ jobs:
         env:
           CC: ${{ matrix.cc[0] }}
           CXX: ${{ matrix.cc[1] }}
-        run: cmake --build . --config ${{ env.BUILD_TYPE }} --parallel 10
+        run: cmake --build . --config ${{ env.BUILD_TYPE }}
