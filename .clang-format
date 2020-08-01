@@ -2,7 +2,7 @@ BasedOnStyle: LLVM
 IndentWidth: 4
 UseTab: Never
 BreakBeforeBraces: Allman
-AllowShortIfStatementsOnASingleLine: "Never"
+AllowShortIfStatementsOnASingleLine: Never
 IndentCaseLabels: false
 ColumnLimit: 0
 DerivePointerAlignment: false
