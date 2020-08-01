@@ -5,5 +5,5 @@ BreakBeforeBraces: Allman
 AllowShortIfStatementsOnASingleLine: "Never"
 IndentCaseLabels: false
 ColumnLimit: 0
-DerivePointerAlignment: true
-PointerAlignment: Left
+DerivePointerAlignment: false
+PointerAlignment: Right
