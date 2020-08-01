@@ -8,3 +8,5 @@ ColumnLimit: 0
 DerivePointerAlignment: false
 PointerAlignment: Right
 AccessModifierOffset: -4
+AlignConsecutiveMacros: true
+IndentPPDirectives: BeforeHash
