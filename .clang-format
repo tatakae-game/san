@@ -7,3 +7,4 @@ IndentCaseLabels: false
 ColumnLimit: 0
 DerivePointerAlignment: false
 PointerAlignment: Right
+AccessModifierOffset: -4
