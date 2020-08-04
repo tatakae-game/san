@@ -194,8 +194,6 @@ namespace std {
         alias PUNICODE_STRING = UNICODE_STRING*;
         alias PCUNICODE_STRING = const PUNICODE_STRING;
 
-        // ReturnBlockHere
-
         alias PUINT = UINT*; //UNINT
         alias PUINT_PTR = UNIT_PTR*; 
         alias PUINT8 = UINT8*;
