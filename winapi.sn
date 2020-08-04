@@ -35,6 +35,8 @@ namespace std {
         alias float = f32;
         alias FLOAT = float;
 
+        // The Start of HANDLE Hell - Okistuff
+
         alias HACCEL = HANDLE;
         alias HALF_PTR = int; // Half size of pointer
         alias HBITMAP = HANDLE;
@@ -68,6 +70,8 @@ namespace std {
         alias HRSRC = HANDLE;
         alias HSZ = HANDLE;
         alias HWINSTA = HANDLE;
+
+        // You Survived HANDLE hell! - Okistuff
 
         alias INT = i32;
         alias INT_PTR = i64;
@@ -148,14 +152,17 @@ namespace std {
 
         // if you can read this then you are trying to figure out how the worst winapi bindings work...
 
+        alias TBYTE = WCHAR;
+        alias TCHAR = WCHAR;
+
         alias POINTER_SIGNED = null; // BlockFindReturn
         alias POINTER_UNSIGNED = null; // BlockFindReturn
         alias PSHORT = SHORT*;
         alias PSIZE_T = null; //SIZE_T;
         alias PSSIZE_T = null; //SSIZE_T
         alias PSTR = CHAR*;
-        alias PTBYTE = null; //TBYTE
-        alias PTCHAR = null; //TCHAR
+        alias PTBYTE = TBYTE;
+        alias PTCHAR = TCHAR;
         alias PTSTR = null; //#ifdef UNICODE
                             //    typedef LPWSTR PTSTR;
                             //#else typedef LPSTR PTSTR;
@@ -163,12 +170,9 @@ namespace std {
         
         alias UCHAR = u8;
         alias PUCHAR = UCHAR; //UCHAR
-        alias PUHALF_PTR = UHALF_PTR; //#ifdef _WIN64
-                                 //   typedef UHALF_PTR *PUHALF_PTR;
-                                 //#else
-                                 //   typedef UHALF_PTR *PUHALF_PTR;
-                                 //#endif
+        alias PUHALF_PTR = UHALF_PTR;
 
+        
         alias UINT = u32;
         alias UINT8 = u8;
         alias UINT16 = u16;
@@ -206,8 +210,8 @@ namespace std {
         alias SC_LOCK = LPVOID;
 
         alias SERVICE_STATUS_HANDLE = HANDLE;
-        alias TBYTE = WCHAR;
-        alias TCHAR = WCHAR;
+        
+
 
         
     }
