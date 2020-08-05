@@ -119,11 +119,11 @@ namespace std {
         alias PBYTE = BYTE*; // BYTE NOT FINISHED
         alias PCHAR = CHAR*;
         alias PCSTR = const CHAR*;
-        alias PCTSTR = null; //#ifdef UNICODE
-                             //    typedef LPCWSTR PCTSTR;
-                             //#else
-                             //    typedef LPCSTR PCTSTR;
-                             //#endif
+        alias PCTSTR = LPCWSTR;
+
+
+
+
         alias PCWSTR = const WCHAR*;
         alias PDWORD = DWORD*;
         alias PDWORLDLONG = DWORDLONG*;
@@ -152,21 +152,23 @@ namespace std {
 
         // if you can read this then you are trying to figure out how the worst winapi bindings work...
 
+        alias SIZE_T = u64;
+        alias SSIZE_T = LONG_PTR;
+
         alias TBYTE = WCHAR;
         alias TCHAR = WCHAR;
 
-        alias POINTER_SIGNED = null; // BlockFindReturn
-        alias POINTER_UNSIGNED = null; // BlockFindReturn
+        alias POINTER_SIGNED = null;        // NEED HELP!
+        alias POINTER_UNSIGNED = null;      // NEED HELP!
         alias PSHORT = SHORT*;
-        alias PSIZE_T = null; //SIZE_T;
-        alias PSSIZE_T = null; //SSIZE_T
+        alias PSIZE_T = SIZE_T ; 
+        alias PSSIZE_T = SSIZE_T;
         alias PSTR = CHAR*;
         alias PTBYTE = TBYTE;
         alias PTCHAR = TCHAR;
-        alias PTSTR = null; //#ifdef UNICODE
-                            //    typedef LPWSTR PTSTR;
-                            //#else typedef LPSTR PTSTR;
-                            //#endif
+        alias PTSTR = LPCWSTR;
+
+
         
         alias UCHAR = u8;
         alias PUCHAR = UCHAR; //UCHAR
@@ -181,8 +183,9 @@ namespace std {
         alias ULONGLONG = i64;
         alias ULONG32 = u32;
         alias ULONG64 = u64;
+        alias ULONG_PTR = u64;
         alias USHORT = u16;
-        alias UNIT_PTR = u64;
+        alias UINT_PTR = u64;
         alias UHALF_PTR = i32; // needs review https://docs.microsoft.com/en-us/windows/win32/winprog/windows-data-types#half_ptr, https://docs.microsoft.com/en-us/windows/win32/winprog/windows-data-types#uhalf_ptr
 
         class UNICODE_STRING {
@@ -195,7 +198,7 @@ namespace std {
         alias PCUNICODE_STRING = const PUNICODE_STRING;
 
         alias PUINT = UINT*; //UNINT
-        alias PUINT_PTR = UNIT_PTR*; 
+        alias PUINT_PTR = UINT_PTR*; 
         alias PUINT8 = UINT8*;
         alias PUINT16 = UINT16*;
         alias PUINT32 = UINT32*;
@@ -215,7 +218,8 @@ namespace std {
         alias SC_LOCK = LPVOID;
 
         alias SERVICE_STATUS_HANDLE = HANDLE;
-        
+        alias USN = i64;
+        alias WPARA, = UINT_PTR;
 
 
         
