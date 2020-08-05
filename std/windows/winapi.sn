@@ -158,8 +158,8 @@ namespace std {
         alias TBYTE = WCHAR;
         alias TCHAR = WCHAR;
 
-        alias POINTER_SIGNED = null;        // NEED HELP!
-        alias POINTER_UNSIGNED = null;      // NEED HELP!
+        alias POINTER_SIGNED = i32;
+        alias POINTER_UNSIGNED = i64;
         alias PSHORT = SHORT*;
         alias PSIZE_T = SIZE_T ; 
         alias PSSIZE_T = SSIZE_T;
