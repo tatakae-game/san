@@ -18,7 +18,7 @@ namespace std {
         alias ULONG_PTR = u64;
         alias USHORT = u16;
         alias UINT_PTR = u64;
-        alias UHALF_PTR = i32; // needs review https://docs.microsoft.com/en-us/windows/win32/winprog/windows-data-types#half_ptr, https://docs.microsoft.com/en-us/windows/win32/winprog/windows-data-types#uhalf_ptr
+        alias UHALF_PTR = i32;
 
 
         alias LONG = i32;
@@ -111,10 +111,10 @@ namespace std {
         alias WCHAR = wchar_t;
         
         alias LPARAM = LONG_PTR;
-        alias LPBOOL = BOOL*; // BOOL far poINTer;
-        alias LPBYTE = BYTE*; // BYTE far poINTer;
+        alias LPBOOL = BOOL*;
+        alias LPBYTE = BYTE*;
         alias LPCOLORREF = DWORD*;
-        alias LPCTSTR = LPCSTR; // #else typedef LPCSTR LPCTSTR;
+        alias LPCTSTR = LPCSTR;
         alias LPCVOID = const void*;
         alias LPCWSTR = const WCHAR*;
 
@@ -129,13 +129,8 @@ namespace std {
         alias LPINT = INT*;
         alias LPLONG = LONG*;
         alias LPSTR = CHAR*;
-        alias LPTSTR = LPWSTR; //#ifdef UNICODE
-                            //   typedef LPWSTR LPTSTR;
-                            //#else
-                            //   typedef LPSTR LPTSTR;
-                            //#endif
+        alias LPTSTR = LPWSTR;
         
-
         alias LRESULT = LONG_PTR;
         alias PBOOL = BOOL*;
         alias PBOOLEAN = BOOLEAN*; 
