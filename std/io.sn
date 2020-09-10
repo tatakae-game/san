@@ -26,14 +26,14 @@ namespace std {
 #[target_os = "linux"]
 namespace std {
     fn print(str: const i8*) {
-      linux::syscalls::write(1, str, std::strlen(str));
-      linux::syscalls::write(1, "\n", 1);
+        linux::syscalls::write(1, str, std::strlen(str));
+        linux::syscalls::write(1, "\n", 1);
     }
     
     fn print(str: const i8*, new_line: bool) {
-      linux::syscalls::write(1, str, std::strlen(str));
+        linux::syscalls::write(1, str, std::strlen(str));
     
-      if new_line linux::syscalls::write(1, "\n", 1);
+        if new_line linux::syscalls::write(1, "\n", 1);
     }
 
 }
