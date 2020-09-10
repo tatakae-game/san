@@ -19,10 +19,17 @@ namespace std {
 
 #[target_os = "linux"]
 namespace std {
-    fn print(str: i8*) {
-        linux::syscalls::write(1, str, std::strlen(str));
-        linux::syscalls::write(1, "\n", 1);
+    fn print(str: const i8*) {
+      linux::syscalls::write(1, str, std::strlen(str));
+      linux::syscalls::write(1, "\n", 1);
     }
+    
+    fn print(str: const i8*, new_line: bool) {
+      linux::syscalls::write(1, str, std::strlen(str));
+    
+      if new_line linux::syscalls::write(1, "\n", 1);
+    }
+
 }
 
 #[target_os = "windows"]
@@ -38,6 +45,16 @@ namespace std {
         WriteConsoleA(handle, str, std::strlen(str), count, null);
         WriteConsoleA(handle, "\n", 1 as u64, count, null);
 
+        std::memory::deallocate(count);
+    }
+
+    fn print(str: i8*) {
+        let handle = GetStdHandle(-11);
+        let count = std::memory::allocate<u64>(1);
+
+        WriteConsoleA(handle, str, std::strlen(str), count, null);
+
+        if new_line WriteConsoleA(handle, "\n", 1 as u64, count, null);
         std::memory::deallocate(count);
     }
 
