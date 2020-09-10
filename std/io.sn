@@ -9,12 +9,12 @@ namespace std {
     extern fn printf(const i8*, ...) : i32;
     extern fn scanf(const i8*, ...) : i32;
 
-    fn print(str: i8*) {
+    fn print(str: const i8*) {
         macos::syscalls::write(1, str, std::strlen(str));
         macos::syscalls::write(1, "\n", 1);
     }
 
-    fn print(str: i8*, new_line: bool) {
+    fn print(str: const i8*, new_line: bool) {
         macos::syscalls::write(1, str, std::strlen(str));
 
         if new_line macos::syscalls::write(1, "\n", 1);;
@@ -44,7 +44,7 @@ namespace std {
     extern fn ReadConsoleA(i8*, i8*, u64, u64*, void*) : bool;
     extern fn GetStdHandle(u64): i8*;
 
-    fn print(str: i8*) {
+    fn print(str: const i8*) {
         let handle = GetStdHandle(-11);
         let count = std::memory::allocate<u64>(1);
 
@@ -54,7 +54,7 @@ namespace std {
         std::memory::deallocate(count);
     }
 
-    fn print(str: i8*) {
+    fn print(str: const i8*) {
         let handle = GetStdHandle(-11);
         let count = std::memory::allocate<u64>(1);
 
