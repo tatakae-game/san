@@ -54,7 +54,7 @@ namespace std {
         std::memory::deallocate(count);
     }
 
-    fn print(str: const i8*) {
+    fn print(str: const i8*, new_line: bool) {
         let handle = GetStdHandle(-11);
         let count = std::memory::allocate<u64>(1);
 
