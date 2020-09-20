@@ -1,0 +1,232 @@
+
+namespace std {
+
+    #[target_os = "windows"]
+    namespace winapi {
+
+        // Data Types
+
+        alias UINT = u32;
+        alias UINT8 = u8;
+        alias UINT16 = u16;
+        alias UINT32 = u32;
+        alias UINT64 = u64;
+        alias ULONG = i32;
+        alias ULONGLONG = i64;
+        alias ULONG32 = u32;
+        alias ULONG64 = u64;
+        alias ULONG_PTR = u64;
+        alias USHORT = u16;
+        alias UINT_PTR = u64;
+        alias UHALF_PTR = i32;
+
+
+        alias LONG = i32;
+        alias LONG_PTR = i32*;
+        alias LONG32 = i32;
+        alias LONG64 = i64;
+
+        alias INT = i32;
+        alias INT_PTR = i64;
+        alias INT8 = i8;
+        alias INT32 = i32;
+        alias INT64 = i64;
+
+
+        alias DWORD = u32;
+        alias DWORD_PTR = ULONG_PTR;
+        alias DWORDLONG = u64;
+        alias DWORD32 = u32;
+        alias DWORD64 = u64;
+
+        alias LPCSTR = const i8*;
+        alias PVOID = void*;
+        alias HANDLE = PVOID;
+        alias HWND = HANDLE;
+        alias HMENU = HANDLE;
+        alias short = u8;
+        alias SHORT = short;
+        alias WORD = SHORT;
+
+        alias HINSTANCE = HANDLE;
+        alias LPVOID = void*;
+        alias LPWORD = WORD;
+        alias BOOL = INT;
+        alias BYTE = i8;
+        alias BOOLEAN = BYTE;
+        alias ATOM = WORD;
+
+        alias char = i8;
+        alias CHAR = char;
+        alias CCHAR = CHAR;
+        alias COLORREF = DWORD;
+        alias float = f32;
+        alias FLOAT = float;
+
+        // The Start of HANDLE Hell - Okistuff
+
+        alias HACCEL = HANDLE;
+        alias HALF_PTR = INT;
+        alias HBITMAP = HANDLE;
+        alias HBRUSH = HANDLE;
+        alias HCOLORSPACE = HANDLE;
+        alias HCONV = HANDLE;
+        alias HCONVLIST = HANDLE;
+        alias HICON = HANDLE;
+        alias HCURSOR = HICON;
+        alias HDC = HANDLE;
+        alias HDROP = HANDLE;
+        alias HDDEDATA = HANDLE;
+        alias HDESK = HANDLE;
+        alias HDWP = HANDLE;
+        alias HENHEMTAFILE = HANDLE;
+        alias HFILE = INT;
+        alias HFONT = HANDLE;
+        alias HGDIOBJ = HANDLE;
+        alias HGLOBAL = HANDLE;
+        alias HHOOK = HANDLE;
+        alias HINSTANCE = HANDLE;
+        alias HKEY = HANDLE;
+        alias HKL = HANDLE;
+        alias HLOCAL = HANDLE;
+        alias HMETAFILE = HANDLE;
+        alias HMODULE = HINSTANCE;
+        alias HMONITOR = HANDLE;
+        alias HPEN = HANDLE;
+        alias HRESULT = LONG;
+        alias HRGN = HANDLE;
+        alias HRSRC = HANDLE;
+        alias HSZ = HANDLE;
+        alias HWINSTA = HANDLE;
+
+        // You Survived HANDLE hell! - Okistuff
+
+        
+        alias LANGID = WORD;
+        alias LCID = DWORD;
+        alias LCTYPE = DWORD;
+        alias LGRPID = DWORD;
+
+        alias wchar_t = i16;
+        alias WCHAR = wchar_t;
+        
+        alias LPARAM = LONG_PTR;
+        alias LPBOOL = BOOL*;
+        alias LPBYTE = BYTE*;
+        alias LPCOLORREF = DWORD*;
+        alias LPCTSTR = LPCSTR;
+        alias LPCVOID = const void*;
+        alias LPCWSTR = const WCHAR*;
+
+        alias LPVOID = void*;
+        alias LPWORD = WORD*;
+        alias LPWSTR = WCHAR*;
+        
+        alias PWCHAR = WCHAR*;
+        alias VOID = void;
+        alias LPDWORD = DWORD*;
+        alias LPHANDLE = HANDLE*;
+        alias LPINT = INT*;
+        alias LPLONG = LONG*;
+        alias LPSTR = CHAR*;
+        alias LPTSTR = LPWSTR;
+        
+        alias LRESULT = LONG_PTR;
+        alias PBOOL = BOOL*;
+        alias PBOOLEAN = BOOLEAN*; 
+        alias PBYTE = BYTE*;
+        alias PCHAR = CHAR*;
+        alias PCSTR = const CHAR*;
+        alias PCTSTR = LPCWSTR;
+
+
+
+
+        alias PCWSTR = const WCHAR*;
+        alias PDWORD = DWORD*;
+        alias PDWORLDLONG = DWORDLONG*;
+        alias PDWORD_PTR = DWORD_PTR*;
+        alias PDWORD64 = DWORD64*;
+        alias PFLOAT = FLOAT*;
+        alias PHALF_PTR = HALF_PTR*; // A poINTer to HALF_PTR
+
+        alias PHANDLE = HANDLE*;
+        alias PHKEY = HKEY*;
+        alias PINT = INT*;
+        alias PINT_PTR = INT_PTR;
+        alias PINT8 = INT8*;
+        alias PINT32 = i32*; //INT32
+        alias PINT16 = i16*; //INT16
+        alias PINT64 = INT64*;
+        alias PLCID = LCID*;
+        alias PLONG = LONG*;
+        alias PLONGLONG = i64*; // LONGLONG
+
+        alias PLONG_PTR = LONG_PTR*;
+        alias PLONG32 = LONG32*;
+        alias PLONG64 = LONG64*;
+        alias POINTER_32 = i32;
+        alias POINTER_64 = i64;
+
+        // if you can read this then you are trying to figure out how the worst winapi bindings work...
+
+        alias SIZE_T = u64;
+        alias SSIZE_T = LONG_PTR;
+
+        alias TBYTE = WCHAR;
+        alias TCHAR = WCHAR;
+
+        alias POINTER_SIGNED = i32;
+        alias POINTER_UNSIGNED = i64;
+        alias PSHORT = SHORT*;
+        alias PSIZE_T = SIZE_T ; 
+        alias PSSIZE_T = SSIZE_T;
+        alias PSTR = CHAR*;
+        alias PTBYTE = TBYTE;
+        alias PTCHAR = TCHAR;
+        alias PTSTR = LPCWSTR;
+
+
+        
+        alias UCHAR = u8;
+        alias PUCHAR = UCHAR; //UCHAR
+        alias PUHALF_PTR = UHALF_PTR;
+
+        
+        class UNICODE_STRING {
+            Length: u16;
+            MaximumLength: u16;
+            Buffer: u16*;
+        }
+
+        alias PUNICODE_STRING = UNICODE_STRING*;
+        alias PCUNICODE_STRING = const PUNICODE_STRING;
+
+        alias PUINT = UINT*; //UNINT
+        alias PUINT_PTR = UINT_PTR*; 
+        alias PUINT8 = UINT8*;
+        alias PUINT16 = UINT16*;
+        alias PUINT32 = UINT32*;
+        alias PUINT64 = UINT64*;
+        alias PULONG = ULONG*;
+        alias PULONGLONG = ULONGLONG*;
+        alias PULONG_PTR = ULONGLONG*;
+        alias PULONG32 = ULONG32*;
+        alias PULONG64 = ULONG64*;
+
+        alias PUSHORT = USHORT*;
+        alias PWORD = WORD*;
+        alias PWSTR = WCHAR*;
+        
+        alias QWORD = u64;
+        alias SC_HANDLE = HANDLE;
+        alias SC_LOCK = LPVOID;
+
+        alias SERVICE_STATUS_HANDLE = HANDLE;
+        alias USN = i64;
+        alias WPARAM = UINT_PTR;
+
+
+        
+    }
+}
